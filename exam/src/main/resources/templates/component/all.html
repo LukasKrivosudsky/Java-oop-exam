@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="background: antiquewhite">
+    <h1 align="center"> All component database </h1>
+    <hr></div>
+<table cellspacing="25">
+    <thead>
+    <tr>
+        <th class="mdl-data-table__cell--non-numeric">ID</th>
+        <th class="mdl-data-table__cell--non-numeric">Name</th>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="component: ${component}">
+        <td th:text = "${component.getId()}"></td>
+        <td th:text = "${component.getName()}"></td>
+
+        <td>
+            <a th:href="@{/component/__${component.getId()}__}">
+                Component Info
+            </a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="/tank/all"> TANK LIST</a>
+
+</body>
+</html>

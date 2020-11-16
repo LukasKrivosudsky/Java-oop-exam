@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div style="background: antiquewhite">
+    <h1 align="center"> All tanks database </h1>
+    <hr></div>
+<table cellspacing="25">
+    <thead>
+    <tr>
+        <th class="mdl-data-table__cell--non-numeric">ID</th>
+        <th class="mdl-data-table__cell--non-numeric">Name</th>
+        <th class="mdl-data-table__cell--non-numeric">Nationality</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tank: ${tanks}">
+        <td th:text = "${tank.getTankId()}"></td>
+        <td th:text = "${tank.getName()}"></td>
+        <td th:text = "${tank.getNationality()}"></td>
+        <td>
+            <a th:href="@{/tank/__${tank.getTankId()}__}">
+                Tank Info
+            </a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="/component/all">COMPONENT LIST</a>
+
+
+</body>
+</html>
